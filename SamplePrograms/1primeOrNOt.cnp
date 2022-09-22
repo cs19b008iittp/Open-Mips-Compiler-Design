@@ -1,0 +1,25 @@
+void main()
+{
+	int n;
+	print("Enter the number");
+	n = scan();
+	
+	bool b = true;
+	for( int i = 2 ; i <= (n/2) ; i++ )
+	{
+		if( n % i == 0 )
+		{
+			b = false;
+			break;
+		}
+	}
+
+	if( b )
+	{
+		print(n, " is a prime number");
+	}
+	else
+	{
+		print(n, " not a prime number");
+	}
+}

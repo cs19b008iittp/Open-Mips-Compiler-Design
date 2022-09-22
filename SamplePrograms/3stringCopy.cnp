@@ -1,0 +1,19 @@
+void main()
+{
+	print("Enter the string");
+	string s;
+	s = scan();
+
+	char arr[len(s)];
+
+	for( int i = 0 ; i < len(s) ; i++ )
+	{
+		arr[i] = s[i];
+	}
+
+	for( int i = 0 ; i < len(s) ; i++ )
+	{
+		prints(arr[i]);
+	}
+	print();
+}
