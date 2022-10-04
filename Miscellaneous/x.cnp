@@ -1,0 +1,11 @@
+void sum( int arr[] )
+{
+	print(arr[2]);
+}
+
+void main()
+{
+	int arr[10];
+	arr[2] = 22;
+	sum(arr);
+}
