@@ -1,0 +1,118 @@
+-while storing the array dimensions we are using a temp variable, use something unique so that it is not regarded as temp.
+-for printing new line character in print, don't use a seperate temp varaible
+-generalized symbol table for all functions
+
+
+
+-types of data = int, bool, string, char, float, address
+
+-strconst _s1 _t2 #"poorna"
+
+
+function stack
+
+intial stack pointer = $sp =  100
+stack size is 20 bytes;
+decrement stack pointer by 20			addiu $sp, $sp, -20
+
+stack pointer = 80
+
+return address, where does this function return to after completing its execution. 0($sp)	= 80, 81, 82, 83 4 bytes.
+as soon as entering the function, copy the $ra to 0($sp)
+
+leaving procedure:
+place the return values;
+copy 0($sp) to $ra.
+jr $ra
+, 
+
+stack structure.
+
+			<- calling funtion parameter
+return value
+param 1
+param 2
+param 3
+
+
+variables
+
+return address
+			<- called functoin parameter.
+
+
+a normal variable n or t1 or t2 or 2
+will either be read or written.
+if read:
+	n will have a specific address - k($sp)	 k = 0 or 4 or 8 etc.
+	read from it, number of bytes is as per the type.
+
+if written:
+	write to the k($sp).
+
+now if it is n.attr
+if read
+	n will have a specific address - k($sp) , k = 0, 4, 8
+	from that add corresponding number to reach attr : k($sp) + m	//m can be known from the struct atrributes.
+														j = k + m;
+														j($sp)
+
+	now read from it.
+if written:
+	same as above, write to the above address( k($sp) + m ), number of bytes is as per the type.
+
+
+now if it is &n
+if read
+	simply assign the the value k + $sp
+
+will not be written.
+
+now if it is *n
+if read
+	get the address of n ( k($sp) ),
+	read the value v.
+	go to the address v.
+	read that value stored in the address v
+
+if written
+	get the same address and write to it.
+
+
+
+
+everything is an address
+
+for normal n, t1, t2, no change.
+
+
+for n.attr
+	n stores the value of address
+	n will stores the address, add that value with the m.
+	return *t
+
+	la t1 n
+	t2 = address(structName, attr);
+	t3 = t1 + t2
+	return *t3
+
+for reading &n
+	la t1 n
+	return t1
+
+for *n
+	t = *n
+	return *t
+	return
+
+
+set return address.		-completed
+minus update			-completed
+
+error handling	--completed
+array passing	-completed
+var assigning	-completed
+float
+deb package
+
+==b for two bool variables	-completed
