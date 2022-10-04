@@ -1,0 +1,116 @@
+void main()
+{
+	int arr[10];
+
+	arr[1] = 21;
+
+	print(arr[1]);
+}
+
+void main()
+{
+	int n = 10;
+	int* naddr = &n;
+	int* n2 = naddr;
+	int** naddraddr = &naddr;
+
+	print(*naddr);
+	print(**naddraddr);
+	**naddraddr = 20;
+
+	print(n);
+	print(*naddr);
+	print(**naddraddr);
+	print(*n2);
+}
+
+var node
+{
+	int value;
+	var node* prev;
+	var node* next;
+}
+
+
+void main()
+{
+	var node n1;
+	var node n2;
+	var node n3;
+	var node n4;
+
+	n1.value = 1;
+	n2.value = 2;
+	n3.value = 3;
+	n4.value = 4;
+
+	print(n1.value);
+	print(n2.value);
+	print(n3.value);
+	print(n4.value);
+
+	n1.next = &n2;
+	n2.next = &n3;
+	n3.next = &n4;
+
+	print( n1.value );
+	print( (*n1.next).value );
+	print( (*(*n1.next).next).value );
+	print( (*(*(*n1.next).next).next).value );
+
+
+	n1.next = malloc(sizeof(n1));
+
+	(*n1.next).value = 21;
+
+	print( (*n1.next).value );
+}
+
+
+var node 
+{
+	int poorna;
+	int syama;
+
+	void printNode()
+	{
+		print("poorna = " , poorna);
+		print("syama = ", syama);
+		syama = -10;
+	}
+}
+
+void main()
+{
+	var node n1;
+	n1.poorna = 100;
+	n1.syama = 20;
+	n1.printNode();
+
+	print(n1.poorna);
+	print(n1.syama);
+}
+
+var node 
+{
+	int poorna;
+	int syama;
+
+	void printNode()
+	{
+		print("poorna = " , poorna);
+		print("syama = ", syama);
+		syama = -30;
+		print("syama in printNode = ", syama);
+	}
+}
+
+void main()
+{
+	var node n1;
+	n1.poorna = 10;
+	n1.syama = 20;
+	n1.printNode();
+	
+	print(n1.syama);
+}
