@@ -1,0 +1,42 @@
+struct start main
+
+function start printString
+
+void 4 _printString_0 
+param start
+string 4 s_1 
+param end
+string 4 s_1 
+
+function end
+function start main
+
+void 4 _main_0 
+param start
+param end
+int 4 _t1_2 
+void 4 _t2_2 
+
+function end
+
+struct end
+
+code starts
+funCall main.main
+call label2
+exit
+label1:
+function start main.printString
+setReturn
+print string s_1
+print newline
+return
+label2:
+function start main.main
+setReturn
+funCall main.printString
+strconst _s1 _t1_2 #"Hello, World!"
+param _t1_2 4
+call label1
+_t2_2 = returnVal
+return
