@@ -1,0 +1,14 @@
+void boolOps(bool x, bool y){
+    bool a = x||y;
+    bool b = x&&y;
+    print("\nOR of given numbers is: ");
+    print(a);
+    print("\nAND of given numbers is: ");
+    print(b);
+}
+
+void main(){
+    bool x = 0;
+    bool y = 1;  
+    boolOps(x,y); 
+}

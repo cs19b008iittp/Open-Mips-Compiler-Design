@@ -1,0 +1,171 @@
+var node
+{
+	int data;
+	var node* left;
+	var node* right;
+}
+
+var tree
+{
+	var node* root;
+
+	void initialize()
+	{
+		root = NULL;
+	}
+
+	bool searchNode( var node* n, int data )
+	{
+		if( n == NULL )
+		{
+			return false;
+		}
+		if( (*n).data == data )
+		{
+			return true;
+		}
+
+		if( (*n).left != NULL )
+		{
+			if( data < (*n).data )
+			{
+				return searchNode((*n).left, data);
+			}
+		}
+
+		if( (*n).right != NULL )
+		{
+			if( data > (*n).data )
+			{
+				return searchNode((*n).right, data);
+			}
+		}
+		
+		return false;
+	}
+
+	void insert( int data )
+	{
+		if( root == NULL )
+		{
+			root = malloc(sizeof(var node));
+			(*root).data = data;
+		}
+		else
+		{
+			var node* n = root;
+
+			for( int i = 0 ; i < 1 ; i )
+			{
+				if( (*n).data == data )
+				{
+					break;
+				}
+				elif( data < (*n).data )
+				{
+					if( (*n).left == NULL )
+					{
+						(*n).left = malloc(sizeof( var node));
+						(*(*n).left).data = data; 
+						break;
+					}
+					else
+					{
+						n = (*n).left;
+					}
+				}
+				elif( data > (*n).data )
+				{
+					if( (*n).right == NULL )
+					{
+						(*n).right = malloc(sizeof(var node));
+						(*(*n).right).data = data;
+						break;
+					}
+					else
+					{
+						n = (*n).right;
+					}
+				}
+			}
+		}
+	}
+
+	bool search( int data )
+	{
+		return searchNode(root, data);
+	}
+
+	void inorder( var node* n )
+	{
+		if( n != NULL )
+		{
+			inorder((*n).left);
+			prints((*n).data, " ");
+			inorder((*n).right);
+		}
+	}
+
+	void preorder( var node* n )
+	{
+		if( n != NULL )
+		{
+			prints((*n).data, " ");
+			preorder((*n).left);
+			preorder((*n).right);
+		}
+	}
+
+	void postorder( var node* n )
+	{
+		if( n != NULL )
+		{
+			postorder((*n).left);
+			postorder((*n).right);
+			prints((*n).data, " ");
+		}
+	}
+
+	void inorderTraversal()
+	{
+		prints("Inorder traversal = ");
+		inorder(root);
+		print();
+	}
+
+	void preorderTraversal()
+	{
+		prints("preorderTraversal = ");
+		preorder(root);
+		print();
+	}
+
+	void postorderTraversal()
+	{
+		prints("postorderTraversal = ");
+		postorder(root);
+		print();
+	}
+}
+
+void main()
+{
+	var tree t;
+	t.initialize();
+	
+	int s;
+	print("Enter the number of elements to insert");
+	s = scan();
+
+	print("Enter the ", s, " elements");
+	for( int i = 0 ; i < s ; i++ )
+	{
+		int n;
+		n = scan();
+		t.insert(n);
+	}
+
+	t.inorderTraversal();
+	t.preorderTraversal();
+	t.postorderTraversal();
+}

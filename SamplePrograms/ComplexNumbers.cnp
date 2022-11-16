@@ -1,0 +1,35 @@
+var complex
+{
+	int real;
+	int imaginary;
+}
+
+var complex add(var complex a, var complex b)
+{
+	var complex sum;
+	sum.real = a.real + b.real;
+	sum.imaginary = a.imaginary + b.imaginary;
+
+	return sum;
+}
+
+void main()
+{
+	var complex a, b;
+
+	//a = 1+2i
+	a.real = 1;
+	a.imaginary = 2;
+
+	//b = 2+3i;
+	b.real = 2;
+	b.imaginary = 3;
+
+
+	var complex c;
+	c = add(a, b);
+
+	print("\n\nComplex number addition");
+	prints("(", a.real, " + " , a.imaginary, "i) + (",  b.real, " + ", b.imaginary,  "i) = " );
+	print(c.real, " + ", c.imaginary, "i");
+}

@@ -1,0 +1,22 @@
+void swap( int* x, int* y ) {
+	int temp;
+
+	temp = *x;
+	*x = *y;
+	*y = temp;
+	
+	return;
+}
+
+void main() {
+	int a = 10;
+	int b = 20;
+
+	print("Before Swapping");
+	print("a = ", a, " " , " b = ", b);
+
+	swap(&a, &b);
+
+	print("After Swapping");
+	print("a = ", a, " " , " b = ", b);
+}

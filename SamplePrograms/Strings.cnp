@@ -1,0 +1,18 @@
+void printChar(char c){
+	print(c);
+	print("\n");
+}
+
+void printString(string s){
+	print(s);
+	print("\n");
+}
+
+void main() {
+	char c1 = 'a';
+	char c2 = 'b';
+	string s = "Hello world";
+	printChar(c1);
+	printChar(c2);
+	printString(s);
+}

@@ -1,0 +1,109 @@
+var node
+{
+	int value;
+	var node* prev;
+	var node* next;
+}
+
+var stack
+{
+	var node* head;
+	var node* tail;
+	int size;
+
+	void initialize()
+	{
+		size = 0;
+		head = NULL;
+	}
+
+	void push( int value )
+	{
+		if( head == NULL )
+		{
+			head = malloc(sizeof( var node));
+			(*head).value = value;
+			tail = head;
+		}
+		else
+		{
+			(*tail).next = malloc(sizeof(var node));
+			(*(*tail).next).value = value;
+			(*(*tail).next).next = NULL;
+			(*(*tail).next).prev = tail;
+
+			tail = (*tail).next;
+		}
+		size++;
+	}
+
+	int pop()
+	{
+		if( tail == NULL )
+		{
+			return -1;
+		}
+
+		int value = (*tail).value;
+		tail = (*tail).prev;
+		if( tail != NULL )
+		{
+			(*tail).next = NULL;
+		}
+		else
+		{
+			head = NULL;
+		}
+		size--;
+
+		return value;
+	}
+
+	void printStack()
+	{
+		prints("Stack Content: ");
+		var node* n = head;
+		for( int i = 0 ; n != NULL ; i++ )
+		{
+			prints((*n).value, " ");
+			n = (*n).next;
+		}
+		print();
+	}
+}
+
+void main()
+{
+	var stack st;
+	st.initialize();
+
+	for( ; true ; )
+	{
+		print("\nEnter 1 to push,  2 to pop, 3 to get the size, any other key to break");
+		
+		int op;
+		
+		op = scan();
+		if( op == 1 )
+		{
+			int val;
+			print("Enter the value");
+			val = scan();
+			st.push(val);
+		}
+		elif( op == 2 )
+		{
+			st.pop();
+		}
+		elif( op == 3 )
+		{
+			print("Size = ", st.size);
+		}
+		else
+		{
+			break;
+		}
+		st.printStack();
+	}
+}
+
